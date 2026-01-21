@@ -1,26 +1,43 @@
+import random as rd
+
 class Framework:
-    def __init__(tableau, coté, nb_cases):
-        tableau.coté = coté    
-        tableau.nb_cases = nb_cases
+    
+    def __init__(self, coté, nb_cases):
+        self.coté = coté    
+        self.nb_cases = nb_cases
 
     #on suppose que le tableau est un carré
-    def afficher(tableau):
-        for i in range(tableau.nb_cases):
-            for j in range(tableau.nb_cases):
+    def afficher(self):
+        for i in range(self.nb_cases):
+            for j in range(self.nb_cases):
                 print("[]", end="")
             print()
-    def remplir(tableau, position, couleur):
-        #remplit une case du tableau avec une couleur donnée
-        x, y = position 
-        tableau[x][y] = couleur
-        #remplit le tableau avec les valeurs de la liste
-        index = 0
-        
 
-    def vide(tableau):
+    def remplir(self, tableau, position, couleur, pourcentage,nb_personnes):
+        #remplit une case du tableau avec une couleur donnée
+        liste_positions = []        
+        for i in range(self.nb_cases):
+            for j in range(self.nb_cases):
+                liste_positions.append([i,j]) 
+        n_B=int(pourcentage * nb_personnes / 100)
+        for k in range(n_B):
+            numero = rd.randint(0, len(liste_positions)-1)
+            x = liste_positions[numero][0]
+            y = liste_positions[numero][1]
+            liste_positions.pop(numero)
+            tableau[x][y] = "B"
+
+        for k in range(nb_personnes - n_B):
+            numero = rd.randint(0, len(liste_positions)-1)
+            x = liste_positions[numero][0]  
+            y = liste_positions[numero][1]
+            liste_positions.pop(numero)
+            tableau[x][y] = "R"
+
+    def vide(self, tableau):
         #renvoie la liste des cases non occupées du tableau
         liste_cases_vides = []  
-        for i in range(tableau.nb_cases):
-            for j in range(tableau.nb_cases):
-                if (i,j) == 0:
+        for i in range(self.nb_cases):
+            for j in range(self.nb_cases):
+                if tableau[i][j] == 0:
                     liste_cases_vides.append((i, j))
