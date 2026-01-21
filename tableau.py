@@ -43,4 +43,5 @@ class Framework():
         for i in range(self.nb_cases):
             for j in range(self.nb_cases):
                 if self.tableau[i][j] == 0:
-                    liste_cases_vides.append((i, j))
+                    liste_cases_vides.append([i, j])
+        return liste_cases_vides
