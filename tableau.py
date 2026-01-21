@@ -2,9 +2,9 @@ import random as rd
 
 class Framework:
     
-    def __init__(self, cote, nb_cases):
+    def __init__(self, cote):
         self.cote = cote    
-        self.nb_cases = nb_cases
+        self.nb_cases = cote^2
 
     #on suppose que le tableau est un carré
     def afficher(self):
