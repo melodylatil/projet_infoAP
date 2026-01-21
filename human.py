@@ -1,5 +1,5 @@
 import numpy as np
-
+import random as rd
 
 class Human:
     def __init__(self):
@@ -20,5 +20,5 @@ class Human:
 
     #si on a une méthode tableau.vide qui donne une liste de positions vide
     def move(self, tableau):
-        n=np.randint(0,len(tableau.vide()))
+        n=rd.randint(0,len(tableau.vide()))
         self.position=tableau.vide()[n]
