@@ -2,8 +2,8 @@ import random as rd
 
 class Framework:
     
-    def __init__(self, coté, nb_cases):
-        self.coté = coté    
+    def __init__(self, cote, nb_cases):
+        self.cote = cote    
         self.nb_cases = nb_cases
 
     #on suppose que le tableau est un carré
@@ -13,7 +13,7 @@ class Framework:
                 print("[]", end="")
             print()
 
-    def remplir(self, position, couleur, pourcentage,nb_personnes):
+    def remplir(self, pourcentage,nb_personnes):
         #remplit une case du tableau avec une couleur donnée
         liste_positions = []        
         for i in range(self.nb_cases):
