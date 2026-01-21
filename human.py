@@ -7,7 +7,7 @@ class Human:
         self.color="blue"
         
 
-    def get_neighbours(self, n):
+    def get_neighbours(self, tableau, n):
         nb_blues=0
         nb_reds=0
         for i in range (self.position[0]-n, self.position[0]+n+1):
@@ -19,6 +19,6 @@ class Human:
 
 
     #si on a une méthode tableau.vide qui donne une liste de positions vide
-    def move(self):
+    def move(self, tableau):
         n=np.randint(0,len(tableau.vide()))
         self.position=tableau.vide()[n]
